@@ -1,0 +1,22 @@
+.card {
+    display: flex; flex-direction: column;
+}
+
+.card-img, .card-img-bottom, .card-img-top {
+    width: 100%;
+    min-height: 680px;
+}
+
+/* .card:hover {
+    transform: scale(1.05);
+    transition: all 1s cubic-bezier(.215, .61, .355, 1);
+    filter: drop-shadow(0 0 0.75rem #717171);
+} */
+
+#cartContainer {
+    height: 200px;
+    border: 1px solid red;
+    margin-bottom: 50px;
+}
+
+
