@@ -63,8 +63,11 @@ document.addEventListener("DOMContentLoaded", function() {
                         const cartResult = document.createElement('div');
                         cartResult.classList.add('carrello');
                         cartResult.innerHTML = `
-                            <h5 class="card-title">${book.title}</h5>
-                            <p class="card-text">Prezzo: ${book.price}</p>
+                            <div class="carrello-item d-flex align-items-center">
+                                <h5 class="card-title me-2">${book.title}</h5>
+                                <p class="card-text m-0 me-3">Prezzo: ${book.price}</p>
+                                <button class="btn btn-secondary btn-danger"><i class="bi bi-x-lg"></i></button>
+                            </div>
                             `;    
     
                         card.style.border = "1px solid red";
