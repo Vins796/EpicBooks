@@ -82,7 +82,7 @@
                     <!-- input ricerca -->
                     <input id="searchField" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                     <!-- bottone search -->
-                    <button class="btn btn-outline-success me-2" onclick="search()" type="button"><i class="bi bi-search"></i></button>
+                    <button class="btn btn-outline-success me-2" type="button"><i class="bi bi-search"></i></button>
                     <!-- bottone carrello -->
                     <button type="button" class="btn btn-outline-warning"><i class="bi bi-cart"></i></button>
                 </form>
@@ -106,11 +106,14 @@
         <!-- card container -->
         <div class="py-5 bg-body-tertiary">
             <div class="container">
-                <div class="row border-2 border-danger d-flex flex-column w-100">
-                    <h2 id="totale">Totale:</h2>
-                    <div id="cartContainer"></div>
+                <div class="row d-flex flex-column w-100 row-gap-2 m-0">
+                    <h2 id="totale">Carrello:</h2>
+                    <div id="cartContainer">
+
+                    </div>
+                    <button id="clear" type="button" class="btn btn-lg btn-danger">Svuota Carrello</button>
                 </div>
-                <div id="booksContainer" class="row row-gap-5 row-cols-1 row-cols-sm-2 row-cols-md-3 g-3"></div>
+                <div id="booksContainer" class="row row-gap-5 row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 mt-5"></div>
             </div>
         </div>
     </main>
