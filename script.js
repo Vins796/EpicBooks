@@ -32,9 +32,10 @@ document.addEventListener("DOMContentLoaded", function() {
     .then(data => {
         console.log(data);
         data.forEach(book => {
-            const card = document.createElement("div");
-            card.classList.add("col", "d-flex");
+            const card = document.createElement("div"); //creo per ogni elemento una card
+            card.classList.add("col", "d-flex"); //aggiungo delle classi alla card
     
+            // modifico l'html della card creata dinamicamente
             card.innerHTML = `
               <div class="card">
                 <img src="${book.img}" class="card-img-top" alt="${book.name}">
@@ -46,14 +47,19 @@ document.addEventListener("DOMContentLoaded", function() {
                 </div>
               </div>
               `;
+
+              // al click sulla card ci spostiamo nella pagina html specifica tramite il numero asin
+            card.onclick = () => (window.location = `bookDetail.html?bookAsin=${book.asin}`); 
+            // console.log(book.asin); 
               
-            booksContainer.appendChild(card);
+            booksContainer.appendChild(card); //appendo la card al container
 
 
             // aggiunta elemento al carrello  
             const addCart = card.querySelector('.btn-buy');
                 addCart.addEventListener('click', function (event) {
-                    event.preventDefault(); // Previeni il comportamento predefinito del link
+                    event.preventDefault(); // Prevengo il comportamento predefinito
+                    // assegno a delle variabili i valori di title e prezzo
                     const titolo = book.title;
                     const prezzo = book.price;
 
@@ -146,50 +152,6 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     })    
 });
-
-
-
-// function search() {
-//     // Ottieni il valore dell'input di ricerca
-//     const input = document.getElementById('searchField').value.toLowerCase();
-
-//     fetch(url)
-//         .then(response => {
-//             if (!response.ok) {
-//                 throw new Error('Errore nella richiesta');
-//             }
-//             return response.json();
-//         })
-//         .then(data => {
-//             // Svuota il contenitore dei libri prima di aggiungere i risultati della ricerca
-//             booksContainer.innerHTML = '';
-
-//             // Filtra i libri in base al titolo che contiene la stringa di ricerca
-//             const filteredBooks = data.filter(book => book.title.toLowerCase().includes(input));
-
-//             // Mostra i libri filtrati nel contenitore dei libri
-//             filteredBooks.forEach(book => {
-//                 const card = document.createElement("div");
-//                 card.classList.add("col", "d-flex");
-
-//                 card.innerHTML = `
-//                     <div class="card">
-//                         <img src="${book.img}" class="card-img-top" alt="${book.name}">
-//                         <div class="card-body">
-//                             <h5 class="card-title">${book.title}</h5>
-//                             <p class="card-text">Prezzo: ${book.price}</p>
-//                             <button class="btn btn-danger btn-buy">Acquista</button>
-//                             <button class="btn btn-secondary btn-remove" onclick = "removeButton()">Remove</button>
-//                         </div>
-//                     </div>
-//                 `;
-
-//                 booksContainer.appendChild(card);
-
-//             });
-//         })
-//         .catch(error => console.error('Errore durante la ricerca dei libri:', error));
-// }
 
 
 

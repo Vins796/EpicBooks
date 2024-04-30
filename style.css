@@ -1,5 +1,9 @@
 .card {
-    display: flex; flex-direction: column;
+    /* display: flex; flex-direction: column; */
+    background-color: #efefef;
+    height: 80px;
+    width: 100%;
+    cursor: pointer;
 }
 
 .card-img, .card-img-bottom, .card-img-top {
